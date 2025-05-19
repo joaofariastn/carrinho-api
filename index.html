@@ -24,7 +24,7 @@
   <script>
     const API = 'https://carrinho-api-g464.onrender.com';
 
-    async function adicionarItem() {
+    async function adicionar_Item() {
       const item = {
         id: parseInt(document.getElementById("id").value),
         nome: document.getElementById("nome").value,
@@ -43,7 +43,7 @@
       listarItens(); // Atualiza a lista após adicionar
     }
 
-    async function listarItens() {
+    async function listar_items() {
       const res = await fetch(`${API}/items`);
       const itens = await res.json();
       const lista = document.getElementById("lista-itens");
@@ -55,7 +55,7 @@
       });
     }
 
-    async function removerItem() {
+    async function remover_item() {
       const id = document.getElementById("delete-id").value;
       const res = await fetch(`${API}/items/${id}`, { method: 'DELETE' });
       const data = await res.json();
