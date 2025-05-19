@@ -37,3 +37,16 @@ def remover_item(item_id: int):
             del carrinho[i]
             return {"message": "Item removido"}
     raise HTTPException(status_code=404, detail="Item não encontrado")
+
+from fastapi.middleware.cors import CORSMiddleware
+
+app = FastAPI()
+
+# HABILITAR CORS PARA TUDO (ou você pode restringir depois)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Permitir qualquer origem
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
