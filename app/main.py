@@ -4,7 +4,6 @@ from typing import List
 
 app = FastAPI()
 
-# Simulando um banco de dados com uma lista
 carrinho = []
 
 class Item(BaseModel):
@@ -37,8 +36,3 @@ def remover_item(item_id: int):
             del carrinho[i]
             return {"message": "Item removido"}
     raise HTTPException(status_code=404, detail="Item não encontrado")
-
-from fastapi.middleware.cors import CORSMiddleware
-
-app = FastAPI()
-
